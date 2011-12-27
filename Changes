@@ -1,0 +1,6 @@
+Revision history for Perl extension RtM.
+
+0.01  Tue Dec 27 03:38:56 2011
+	- original version; created by h2xs 1.23 with options
+		-A -n RtM
+
