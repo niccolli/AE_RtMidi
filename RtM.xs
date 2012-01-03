@@ -21,16 +21,22 @@ RtMidiIn::new()
 void
 RtMidiIn::openPort(sv,pv)
 	SV *sv;
-	PV *pv;
+	SV *pv;
 	CODE:
-		THIS->openPort(sv, pv);
-
-
-void
-RtMidiIn::openVirtualPort()
+		THIS->openPort(SvIV(sv), SvPV_nolen(pv));
+		
 
 void
-RtMidiIn::setCallback()
+RtMidiIn::openVirtualPort(sv)
+	SV *sv;
+	CODE:
+		THIS->openVirtualPort( SvPV_nolen(sv) );
+
+void
+RtMidiIn::setCallback(sv)
+	SV *sv;
+	CODE:
+		THIS->setCallback( SvRV(sv) );
 
 void
 RtMidiIn::cancelCallback()
