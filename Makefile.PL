@@ -18,9 +18,9 @@ WriteMakefile(
 	LD				  => '$(CC)',
 	INC               => '-I.', # e.g., '-I. -I/usr/include/other'
 	# Un-comment this if you add C files to link with later:
-    # OBJECT            => '$(O_FILES)', # link all the C files too
+    OBJECT            => '$(O_FILES)', # link all the C files too
 	XSOPT			  => '-C++',
-	LDDLFLAGS		  => '-bundle -undefined dynamic_lookup -Wall -framework CoreMidi -framework CoreAudio -framework CoreFoundation',
-	OPTIMIZE		  => '-arch i386',
+	LDDLFLAGS		  => '-Wall -bundle -undefined dynamic_lookup -framework CoreMidi -framework CoreAudio -framework CoreFoundation',
+	# OPTIMIZE		  => '-arch i386',
 	TYPEMAPS		  => ['perlobject.map'],
 );
