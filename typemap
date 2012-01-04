@@ -1,2 +1,3 @@
 TYPEMAP
-RtM *	O_OBJECT
+RtMidiIn *	O_OBJECT
+RtMidiOut *	O_OBJECT
