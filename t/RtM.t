@@ -8,11 +8,32 @@
 use strict;
 use warnings;
 
-use Test::More tests => 1;
+use Test::More tests => 4;
 BEGIN { use_ok('RtM') };
 
 #########################
 
-# Insert your test code below, the Test::More module is use()ed here so read
-# its man page ( perldoc Test::More ) for help writing this test script.
+use RtM;
+my $tested = RtM->new();
+
+can_ok('RtM', 'getPortCount', 'getPortName');
+
+# Testing a number of MIDI port
+my $count = undef;
+$count = $tested->getPortCount();
+ok( defined $count );
+#is( $count, 0 );
+
+
+SKIP:{
+	if( $count == 0 ){
+		skip("MIDI device is not connected.", 1);
+	}
+	# Testing the name of MIDI port
+	my $name = undef;
+	$name = $tested->getPortName($count-1);
+	ok( defined $name, "PortName: $name" );
+}
+
+done_testing();
 
